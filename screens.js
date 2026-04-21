@@ -51,9 +51,16 @@ const SCREENS = {
 
   boi_in_tree: {
     image: "art/boi_in_tree.png",
-    text: "\"My oh my it seems a tree has grown in me.\"",
+    text: "\"My oh my it seems a tree has grown in me. Time moves quicker and quicker these days.\"",
     choices: [
-      
+      { text: "\"Ain't that the truth.\"", to: "boi_in_tree2" },
+    ]
+  },
+
+  boi_in_tree2: {
+    image: "art/boi_in_tree.png",
+    text: "\"Can you do something for me?\"",
+    choices: [
     ]
   },
 };
