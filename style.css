@@ -1,0 +1,125 @@
+@font-face {
+  font-family: "ITC Benguiat";
+  src: url("fonts/BenguiatITC.woff2") format("woff2"),
+       url("fonts/BenguiatITC.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Perfect DOS VGA 437";
+  src: url("fonts/Perfect DOS VGA 437.ttf") format("truetype");
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #0d0d0d;
+  color: #ffffff;
+  font-family: "Courier New", Courier, monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+#game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  max-width: 640px;
+  width: 100%;
+  padding: 32px 16px;
+  transition: opacity 0.2s ease;
+}
+
+#game.fade-out {
+  opacity: 0;
+}
+
+#screen-imgs {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  max-width: 720px;
+}
+
+#screen-imgs img {
+  height: 480px;
+  width: auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  border: 2px solid #444;
+}
+
+#back-btn {
+  position: fixed;
+  top: 20px;
+  left: 24px;
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #555;
+  padding: 6px 14px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+#back-btn:hover {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+
+#screen-title {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 2.2rem;
+  font-weight: bold;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.2;
+}
+
+#screen-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
+  max-width: 480px;
+  white-space: pre-wrap;
+}
+
+#choices {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 400px;
+}
+
+#choices button {
+  background: #1a1a1a;
+  color: #ffffff;
+  border: 1px solid #555;
+  padding: 10px 16px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.1s, border-color 0.1s;
+}
+
+#choices button:hover {
+  background: #2a2a2a;
+  border-color: #aaa;
+}
+
+#choices button:active {
+  background: #333;
+}
