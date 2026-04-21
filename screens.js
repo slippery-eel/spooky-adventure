@@ -26,6 +26,25 @@ const SCREENS = {
   },
 
   // placeholder1 — not yet defined
+  placeholder1: {
+    image: "art/bear.jpg",
+    text: "sucks 2 suck",
+    choices: [
+    ]
+  },
   // placeholder2 — not yet defined
+  placeholder2: {
+    image: "art/bear.jpg",
+    text: "gay",
+    choices: [
+    ]
+  },
   // placeholder3 — not yet defined
+  placeholder3: {
+    image: "art/bear.jpg",
+    text: "fine bich fuck u too",
+    choices: [
+      
+    ]
+  },
 };
