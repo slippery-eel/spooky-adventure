@@ -44,6 +44,7 @@ body {
 #screen-imgs {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 6px;
   width: 100%;
   max-width: 720px;
@@ -58,10 +59,10 @@ body {
 }
 
 #screen-imgs img:only-child {
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   height: auto;
   max-height: min(480px, 55vh);
-  object-fit: contain;
 }
 
 @media (max-width: 600px) {
@@ -74,6 +75,12 @@ body {
     min-width: 0;
     width: 0;
     height: auto;
+  }
+
+  #screen-imgs img:only-child {
+    flex: none;
+    width: auto;
+    max-width: 100%;
   }
 
   #screen-title {
