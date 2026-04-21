@@ -69,12 +69,10 @@ body {
     padding: 56px 12px 24px;
   }
 
-  #screen-imgs {
-    flex-direction: column;
-  }
-
   #screen-imgs img {
-    width: 100%;
+    flex: 1;
+    min-width: 0;
+    width: 0;
     height: auto;
   }
 
