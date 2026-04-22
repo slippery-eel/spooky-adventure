@@ -60,7 +60,7 @@ const SCREENS = {
   boi_in_tree: {
     image: "art/boi_in_tree.png",
     text: "\"My oh my it seems a tree has grown in me. Time moves quicker and quicker these days.\"",
-    ambience: "audio/WindandOwl.wav",
+    ambience: "audio/wind_and_owl.wav",
     ambienceVolume: 0.3,
     choices: [
       { text: "\"Ain't that the truth.\"", to: "boi_in_tree2" },
@@ -72,7 +72,7 @@ const SCREENS = {
     text: "\"Can you do something for me?\"",
     music: "audio/ominous_beat.wav",
     volume: 0.8,
-    ambience: "audio/WindandOwl.wav",
+    ambience: "audio/wind_and_owl.wav",
     ambienceVolume: 0.15,
     choices: []
   },
