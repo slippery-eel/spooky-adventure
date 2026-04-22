@@ -44,6 +44,7 @@ const SCREENS = {
     text: "\"nerd\"",
     ambience: "audio/wind1.wav",
     sfx: "audio/bwomp.wav",
+    sfxVolume: 0.2,
     choices: [
       { text: "Move on.", to: "boi_in_tree" },
     ]
@@ -54,6 +55,7 @@ const SCREENS = {
     text: "\"fine bich fuck u too\"",
     ambience: "audio/wind1.wav",
     sfx: "audio/bwomp.wav",
+    sfxVolume: 0.2,
     choices: []
   },
 
