@@ -25,6 +25,8 @@ Purely static, zero-dependency visual novel. Four files:
   text: "Body text here.",             // optional — \n and \n\n respected (white-space: pre-wrap)
   music: "audio/track.wav",            // looping background music for this screen
   volume: 0.6,                         // optional music volume (0.0–1.0, default 0.6)
+  ambience: "audio/birds.wav",          // optional second looping track (independent of music)
+  ambienceVolume: 0.6,                 // optional ambience volume (0.0–1.0, default 0.6)
   sfx: "audio/sound.wav",              // optional one-shot sound on screen arrival
   sfxVolume: 0.6,                      // optional sfx volume (0.0–1.0, default 0.6)
   choices: [                           // empty array = ending screen (shows "Play Again")

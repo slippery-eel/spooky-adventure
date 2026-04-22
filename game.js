@@ -7,13 +7,17 @@ const audioBtn = document.getElementById("audio-btn");
 
 const history = [];
 let audioEnabled = false;
+let currentScreenId = null;
+
 let currentMusic = null;
 let currentMusicSrc = null;
-let currentScreenId = null;
+
+let currentAmbience = null;
+let currentAmbienceSrc = null;
 
 function updateMusic(src, volume = 0.6) {
   if (!audioEnabled) return;
-  if (src === currentMusicSrc) return;
+  if (src === currentMusicSrc) { if (currentMusic) currentMusic.volume = volume; return; }
   if (currentMusic) { currentMusic.pause(); currentMusic = null; }
   currentMusicSrc = src;
   if (!src) return;
@@ -23,16 +27,32 @@ function updateMusic(src, volume = 0.6) {
   currentMusic.play().catch(() => {});
 }
 
+function updateAmbience(src, volume = 0.6) {
+  if (!audioEnabled) return;
+  if (src === currentAmbienceSrc) { if (currentAmbience) currentAmbience.volume = volume; return; }
+  if (currentAmbience) { currentAmbience.pause(); currentAmbience = null; }
+  currentAmbienceSrc = src;
+  if (!src) return;
+  currentAmbience = new Audio(src);
+  currentAmbience.loop = true;
+  currentAmbience.volume = volume;
+  currentAmbience.play().catch(() => {});
+}
+
 audioBtn.addEventListener("click", () => {
   audioEnabled = !audioEnabled;
   audioBtn.textContent = audioEnabled ? "🔊" : "🔇";
   if (audioEnabled) {
     if (currentMusic) { currentMusic.pause(); currentMusic = null; }
+    if (currentAmbience) { currentAmbience.pause(); currentAmbience = null; }
     currentMusicSrc = null;
+    currentAmbienceSrc = null;
     const s = SCREENS[currentScreenId];
     updateMusic(s?.music || null, s?.volume ?? 0.6);
+    updateAmbience(s?.ambience || null, s?.ambienceVolume ?? 0.6);
   } else {
     if (currentMusic) currentMusic.pause();
+    if (currentAmbience) currentAmbience.pause();
   }
 });
 
@@ -71,6 +91,7 @@ function render(screenId) {
   text.style.display = screen.text ? "block" : "none";
 
   updateMusic(screen.music || null, screen.volume ?? 0.6);
+  updateAmbience(screen.ambience || null, screen.ambienceVolume ?? 0.6);
 
   if (audioEnabled && screen.sfx) {
     const sfx = new Audio(screen.sfx);
