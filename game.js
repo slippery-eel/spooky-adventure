@@ -56,6 +56,16 @@ audioBtn.addEventListener("click", () => {
   }
 });
 
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    if (currentMusic) currentMusic.pause();
+    if (currentAmbience) currentAmbience.pause();
+  } else if (audioEnabled) {
+    if (currentMusic) currentMusic.play().catch(() => {});
+    if (currentAmbience) currentAmbience.play().catch(() => {});
+  }
+});
+
 backBtn.addEventListener("click", () => {
   if (history.length < 2) return;
   history.pop();
