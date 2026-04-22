@@ -13,7 +13,7 @@ const SCREENS = {
     text: "You walk alone in a dark forest.",
     ambience: "audio/wind1.wav",
     sfx: "audio/bwomp3.wav",
-    sfxVolume: 0.3,
+    sfxVolume: 0.25,
     choices: [
       { text: "Keep going", to: "bear_keeper" },
     ]
@@ -63,7 +63,7 @@ const SCREENS = {
     image: "art/boi_in_tree.png",
     text: "\"My oh my it seems a tree has grown in me. Time moves quicker and quicker these days.\"",
     ambience: "audio/wind_and_owl.wav",
-    ambienceVolume: 0.3,
+    ambienceVolume: 0.2,
     choices: [
       { text: "\"Ain't that the truth.\"", to: "boi_in_tree2" },
     ]
