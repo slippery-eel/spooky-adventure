@@ -41,7 +41,7 @@ function updateAmbience(src, volume = 0.6) {
 
 audioBtn.addEventListener("click", () => {
   audioEnabled = !audioEnabled;
-  audioBtn.textContent = audioEnabled ? "🔊" : "🔇";
+  audioBtn.classList.toggle("on", audioEnabled);
   if (audioEnabled) {
     if (currentMusic) { currentMusic.pause(); currentMusic = null; }
     if (currentAmbience) { currentAmbience.pause(); currentAmbience = null; }
