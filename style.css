@@ -89,6 +89,27 @@ body {
   }
 }
 
+#audio-btn {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #555;
+  padding: 6px 14px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  filter: grayscale(1);
+  transition: border-color 0.15s, filter 0.15s;
+}
+
+#audio-btn:hover {
+  border-color: #ffffff;
+  filter: grayscale(1) brightness(1.4);
+}
+
 #back-btn {
   position: fixed;
   top: 20px;

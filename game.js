@@ -3,8 +3,38 @@ const title = document.getElementById("screen-title");
 const text = document.getElementById("screen-text");
 const choices = document.getElementById("choices");
 const backBtn = document.getElementById("back-btn");
+const audioBtn = document.getElementById("audio-btn");
 
 const history = [];
+let audioEnabled = false;
+let currentMusic = null;
+let currentMusicSrc = null;
+let currentScreenId = null;
+
+function updateMusic(src, volume = 0.6) {
+  if (!audioEnabled) return;
+  if (src === currentMusicSrc) return;
+  if (currentMusic) { currentMusic.pause(); currentMusic = null; }
+  currentMusicSrc = src;
+  if (!src) return;
+  currentMusic = new Audio(src);
+  currentMusic.loop = true;
+  currentMusic.volume = volume;
+  currentMusic.play().catch(() => {});
+}
+
+audioBtn.addEventListener("click", () => {
+  audioEnabled = !audioEnabled;
+  audioBtn.textContent = audioEnabled ? "🔊" : "🔇";
+  if (audioEnabled) {
+    if (currentMusic) { currentMusic.pause(); currentMusic = null; }
+    currentMusicSrc = null;
+    const s = SCREENS[currentScreenId];
+    updateMusic(s?.music || null, s?.volume ?? 0.6);
+  } else {
+    if (currentMusic) currentMusic.pause();
+  }
+});
 
 backBtn.addEventListener("click", () => {
   if (history.length < 2) return;
@@ -20,6 +50,7 @@ function render(screenId) {
     return;
   }
 
+  currentScreenId = screenId;
   history.push(screenId);
   backBtn.style.display = history.length > 1 ? "inline-block" : "none";
 
@@ -38,6 +69,14 @@ function render(screenId) {
 
   text.textContent = screen.text || "";
   text.style.display = screen.text ? "block" : "none";
+
+  updateMusic(screen.music || null, screen.volume ?? 0.6);
+
+  if (audioEnabled && screen.sfx) {
+    const sfx = new Audio(screen.sfx);
+    sfx.volume = screen.sfxVolume ?? 0.6;
+    sfx.play().catch(() => {});
+  }
 
   choices.innerHTML = "";
 
