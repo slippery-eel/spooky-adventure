@@ -42,10 +42,13 @@ Purely static, zero-dependency visual novel. Four files:
 
 ## Audio
 
-- Audio is **off by default**. Top-right 🔇/🔊 button toggles it.
-- Music tracks go in `audio/`. On track change the previous track stops and the new one loops.
-- Muting pauses in place; unmuting evaluates the current screen's track fresh.
-- `sfx` plays once on screen arrival (only when audio is enabled).
+- Audio is **off by default**. Top-right button (custom icons `art/soundpic.png` / `art/soundpic2.png`) toggles it.
+- A choice can set `enableAudio: true` to auto-enable audio when clicked (used on the intro "Go Forth" button).
+- Music and ambience tracks go in `audio/`. On track change the previous track stops and the new one loops. Same track with different volume updates in place without restarting.
+- Muting pauses both channels in place; unmuting evaluates the current screen's tracks fresh.
+- `sfx` plays once on screen arrival (150ms delay to avoid clipping on audio context unlock).
+- Audio pauses automatically when the page is hidden (phone locked/app switched) and resumes on return.
+- All audio filenames must be **lowercase** — GitHub Pages runs on Linux (case-sensitive).
 
 ## Adding Screens
 

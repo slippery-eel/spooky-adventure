@@ -104,9 +104,11 @@ function render(screenId) {
   updateAmbience(screen.ambience || null, screen.ambienceVolume ?? 0.6);
 
   if (audioEnabled && screen.sfx) {
-    const sfx = new Audio(screen.sfx);
-    sfx.volume = screen.sfxVolume ?? 0.6;
-    sfx.play().catch(() => {});
+    setTimeout(() => {
+      const sfx = new Audio(screen.sfx);
+      sfx.volume = screen.sfxVolume ?? 0.6;
+      sfx.play().catch(() => {});
+    }, 150);
   }
 
   choices.innerHTML = "";
@@ -126,6 +128,10 @@ function render(screenId) {
     const btn = document.createElement("button");
     btn.textContent = choice.text;
     btn.onclick = () => {
+      if (choice.enableAudio && !audioEnabled) {
+        audioEnabled = true;
+        audioBtn.classList.add("on");
+      }
       document.getElementById("game").classList.add("fade-out");
       setTimeout(() => render(choice.to), 200);
     };

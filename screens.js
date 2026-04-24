@@ -2,17 +2,18 @@ const SCREENS = {
   start: {
     image: "art/intro.png",
     title: "Leaky Churches",
-    ambience: "audio/wind1.wav",
+    ambience: "audio/wind_1.wav",
+    ambienceVolume: 0.8,
     choices: [
-      { text: "Go Forth", to: "forest_start" },
+      { text: "Go Forth", to: "forest_start", enableAudio: true },
     ]
   },
 
   forest_start: {
     images: ["art/trees1.png", "art/trees2.png", "art/trees3.png"],
     text: "You walk alone in a dark forest.",
-    ambience: "audio/wind1.wav",
-    sfx: "audio/bwomp3.wav",
+    ambience: "audio/wind_1.wav",
+    sfx: "audio/bwomp_unlock.wav",
     sfxVolume: 0.25,
     choices: [
       { text: "Keep going", to: "bear_keeper" },
@@ -22,7 +23,7 @@ const SCREENS = {
   bear_keeper: {
     image: "art/bear.png",
     text: "A figure appears from the wood.\n\n\"Hello traveler. What are you doing here?\"",
-    ambience: "audio/wind1.wav",
+    ambience: "audio/wind_1.wav",
     sfx: "audio/step.wav",
     sfxVolume: 0.05,
     choices: [
@@ -35,15 +36,15 @@ const SCREENS = {
   placeholder1: {
     image: "art/bear.png",
     text: "\"sucks 2 suck\"",
-    ambience: "audio/wind1.wav",
+    ambience: "audio/wind_1.wav",
     choices: []
   },
 
   placeholder2: {
     image: "art/bear.png",
     text: "\"nerd\"",
-    ambience: "audio/wind1.wav",
-    sfx: "audio/bwomp.wav",
+    ambience: "audio/wind_1.wav",
+    sfx: "audio/bwomp_bad_1.wav",
     sfxVolume: 0.2,
     choices: [
       { text: "Move on.", to: "boi_in_tree" },
@@ -53,8 +54,8 @@ const SCREENS = {
   placeholder3: {
     image: "art/bear.png",
     text: "\"fine bich fuck u too\"",
-    ambience: "audio/wind1.wav",
-    sfx: "audio/bwomp.wav",
+    ambience: "audio/wind_1.wav",
+    sfx: "audio/bwomp_bad_2.wav",
     sfxVolume: 0.2,
     choices: []
   },
@@ -76,6 +77,8 @@ const SCREENS = {
     volume: 0.8,
     ambience: "audio/wind_and_owl.wav",
     ambienceVolume: 0.15,
+    sfx: "audio/ominous_bang.wav",
+    sfxVolume: 0.05,
     choices: []
   },
 };
