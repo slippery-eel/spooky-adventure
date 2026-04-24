@@ -37,7 +37,11 @@ const SCREENS = {
     image: "art/bear.png",
     text: "\"sucks 2 suck\"",
     ambience: "audio/wind_1.wav",
-    choices: []
+    sfx: "audio/bwomp_funny.wav",
+    sfxVolume: 0.1,
+    choices: [
+      { text: "Move on.", to: "boi_in_ground" },
+    ]
   },
 
   placeholder2: {
@@ -77,8 +81,32 @@ const SCREENS = {
     volume: 0.8,
     ambience: "audio/wind_and_owl.wav",
     ambienceVolume: 0.15,
-    sfx: "audio/ominous_bang.wav",
-    sfxVolume: 0.05,
+    sfx: "audio/whoosh_1.wav",
+    sfxVolume: 0.15,
     choices: []
+  },
+
+  boi_in_ground: {
+    image: "art/boi_in_ground.png",
+    text: "\"Hello my good sir. Lovely morning isn't it?\"",
+    ambience: "audio/summer_ambience.wav",
+    ambienceVolume: 0.2,
+    sfx: "audio/sting_weird.wav",
+    sfxVolume: 0.02,
+    choices: [
+      { text: "\"Yes.\"", to: "eyes_of_god" },
+    ]
+  },
+
+  eyes_of_god: {
+    image: "art/eyes_of_god.png",
+    text: "You look up. The sky opens and the eyes of God star down at you.",
+    ambience: "audio/summer_ambience.wav",
+    ambienceVolume: 0.2,
+    sfx: "audio/sting_good.wav",
+    sfxVolume: 0.01,
+    choices: [
+      { text: "\"Creepy.\"", to: "boi_in_tree" },
+    ]
   },
 };

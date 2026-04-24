@@ -50,6 +50,12 @@ Purely static, zero-dependency visual novel. Four files:
 - Audio pauses automatically when the page is hidden (phone locked/app switched) and resumes on return.
 - All audio filenames must be **lowercase** — GitHub Pages runs on Linux (case-sensitive).
 
+## Current Screen Map
+
+`start` → `forest_start` → `bear_keeper` → `placeholder1` → `boi_in_ground` → `eyes_of_god` → `boi_in_tree` → `boi_in_tree2`
+`bear_keeper` → `placeholder2` → `boi_in_tree`
+`bear_keeper` → `placeholder3`
+
 ## Adding Screens
 
 User describes screens in freeform prose. Convert to entries in `screens.js`. Mark undefined target IDs as `// not yet defined` comments. Use `start` as the entry point key.
