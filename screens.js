@@ -90,7 +90,7 @@ const SCREENS = {
     image: "art/boi_in_ground.png",
     text: "\"Hello my good sir. Lovely morning isn't it?\"",
     ambience: "audio/summer_ambience.wav",
-    ambienceVolume: 0.2,
+    ambienceVolume: 0.1,
     sfx: "audio/sting_weird.wav",
     sfxVolume: 0.02,
     choices: [
@@ -102,7 +102,7 @@ const SCREENS = {
     image: "art/eyes_of_god.png",
     text: "You look up. The sky opens and the eyes of God star down at you.",
     ambience: "audio/summer_ambience.wav",
-    ambienceVolume: 0.2,
+    ambienceVolume: 0.1,
     sfx: "audio/sting_good.wav",
     sfxVolume: 0.01,
     choices: [
