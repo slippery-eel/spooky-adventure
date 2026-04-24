@@ -106,7 +106,6 @@ const SCREENS = {
     sfx: "audio/sting_good.wav",
     sfxVolume: 0.01,
     choices: [
-      { text: "\"Creepy.\"", to: "boi_in_tree" },
     ]
   },
 };
