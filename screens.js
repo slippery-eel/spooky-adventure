@@ -5,18 +5,107 @@ const SCREENS = {
     ambience: "audio/wind_1.wav",
     ambienceVolume: 0.8,
     choices: [
-      { text: "Go Forth", to: "forest_start", enableAudio: true },
+      { text: "Go Forth", to: "character_select", enableAudio: true },
     ]
   },
 
-  forest_start: {
-    images: ["art/trees1.png", "art/trees2.png", "art/trees3.png"],
-    text: "You walk alone in a dark forest.",
+//CHARACTER SELECTS
+  character_select: {
+    images: ["art/fishboi.png", "art/hooded.png", "art/candace.jpg"],
+    text: "Who are you?",
     ambience: "audio/wind_1.wav",
     sfx: "audio/bwomp_unlock.wav",
     sfxVolume: 0.25,
     choices: [
-      { text: "Keep going", to: "bear_keeper" },
+      { text: "Fish Boi", to: "character_1" },
+      { text: "The Shrouded Lord", to: "character_2" },
+      { text: "Jessica", to: "character_3" },
+    ]
+  },
+
+  character_1: {
+    images: ["art/fishboi.png"],
+    text: "Unt il'Nil is a former warrior of the squisher cult, cast out for heresy against their God. His mission is to find the great power and restore his God to its former glory and reclaim his place in the cult.",
+    ambience: "audio/wind_1.wav",
+    sfx: "audio/bwomp_unlock_2.wav",
+    sfxVolume: 0.25,
+    choices: [
+      { text: "Accept my fate.", to: "dungeon_start" },
+      { text: "Go back.", to: "character_select" },
+    ]
+  },
+
+  character_2: {
+    images: ["art/hooded.png"],
+    text: "Damn boi u spooky. TBD.",
+    ambience: "audio/wind_1.wav",
+    sfx: "audio/bwomp_unlock_2.wav",
+    sfxVolume: 0.25,
+    choices: [
+      { text: "Accept my fate.", to: "dungeon_start" },
+      { text: "Go back.", to: "character_select" },
+    ]
+  },
+
+  character_3: {
+    images: ["art/candace.jpg"],
+    text: "Okay baddie.",
+    ambience: "audio/wind_1.wav",
+    sfx: "audio/bwomp_unlock_2.wav",
+    sfxVolume: 0.25,
+    choices: [
+      { text: "Accept my fate.", to: "dungeon_start" },
+      { text: "Go back.", to: "character_select" },
+    ]
+  },
+
+  //DUNGEON SEQUENCE
+  dungeon_start: {
+    image: "art/dungeon_door.png",
+    text: "You awake in a dungeon.",
+    ambience: "audio/dripping_ambience.m4a",
+    ambienceVolume: 1,
+    music: "audio/ominous_drone.wav",
+    sfx: "audio/bwomp_bad_2.wav",
+    sfxVolume: 0.25,
+    choices: [
+      { text: "Go back to sleep.", to: "dungeon_start" },
+      { text: "Cry.", to: "dungeon_start" },
+      { text: "Look through the keyhole.", to: "keyhole" },
+    ]
+  },
+
+  keyhole: {
+    image: ["art/silhouette.png"],
+    text: "You see figures moving in the candlelight.",
+    ambience: "audio/dripping_ambience.m4a",
+    ambienceVolume: 1,
+    music: "audio/ominous_drone.wav",    
+    choices: [
+      { text: "Go back.", to: "dungeon_hole" },
+    ]
+  },
+
+  dungeon_hole: {
+    image: ["art/dungeon_hole.png"],
+    text: "An explosion happens and your escape appears.",
+    ambience: "audio/dripping_ambience.m4a",
+    ambienceVolume: 1,
+    music: "audio/ominous_drone.wav",
+    sfx: "audio/dungeon_explosion.wav",
+    sfxVolume: 0.1,
+    choices: [
+      { text: "Leave.", to: "forest_start" },
+    ]
+  },
+  
+  //FOREST SEQUENCE  
+  forest_start: {
+    images: ["art/trees1.png", "art/trees2.png", "art/trees3.png"],
+    text: "You walk alone in a dark forest.",
+    ambience: "audio/wind_1.wav",
+    choices: [
+      { text: "Keep going.", to: "bear_keeper" },
     ]
   },
 

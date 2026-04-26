@@ -52,9 +52,16 @@ Purely static, zero-dependency visual novel. Four files:
 
 ## Current Screen Map
 
-`start` → `forest_start` → `bear_keeper` → `placeholder1` → `boi_in_ground` → `eyes_of_god` → `boi_in_tree` → `boi_in_tree2`
-`bear_keeper` → `placeholder2` → `boi_in_tree`
-`bear_keeper` → `placeholder3`
+**Character select:**
+`start` → `character_select` → `character_1` / `character_2` / `character_3` → `dungeon_start`
+
+**Dungeon sequence:**
+`dungeon_start` → `keyhole` → `dungeon_hole` → `forest_start`
+
+**Forest sequence:**
+`forest_start` → `bear_keeper` → `placeholder1` → `boi_in_ground` → `eyes_of_god` (ending)
+`bear_keeper` → `placeholder2` → `boi_in_tree` → `boi_in_tree2` (ending)
+`bear_keeper` → `placeholder3` (ending)
 
 ## Adding Screens
 
