@@ -20,12 +20,13 @@ const SCREENS = {
       { text: "Fish Boi", to: "character_1" },
       { text: "The Shrouded Lord", to: "character_2" },
       { text: "Jessica", to: "character_3" },
+      { text: "Random", random: ["character_1", "character_2", "character_3"] },
     ]
   },
 
   character_1: {
     images: ["art/fishboi.png"],
-    text: "Unt il'Nil is a former warrior of the squisher cult, cast out for heresy against their God. His mission is to find the great power and restore his God to its former glory and reclaim his place in the cult.",
+    text: "Unt il'Nil is a former warrior of the squisher cult, cast out for heresy. His mission is to find the great power and restore his God to its former glory and reclaim his place in the cult.",
     ambience: "audio/wind_1.wav",
     sfx: "audio/bwomp_unlock_2.wav",
     sfxVolume: 0.25,
@@ -70,14 +71,25 @@ const SCREENS = {
     sfxVolume: 0.25,
     choices: [
       { text: "Go back to sleep.", to: "dungeon_start" },
-      { text: "Cry.", to: "dungeon_start" },
+      { text: "Look around.", to: "dungeon_reverse" },
       { text: "Look through the keyhole.", to: "keyhole" },
+    ]
+  },
+
+  dungeon_reverse: {
+    image: "art/dungeon_reverse.png",
+    text: "Not much to see here.",
+    ambience: "audio/dripping_ambience.m4a",
+    ambienceVolume: 1,
+    music: "audio/ominous_drone.wav",
+    choices: [
+      { text: "Look back.", to: "dungeon_start" },
     ]
   },
 
   keyhole: {
     image: ["art/silhouette.png"],
-    text: "You see figures moving in the candlelight.",
+    text: "You see figures moving in the candlelight with hushed, hurried voices. Something is happening.",
     ambience: "audio/dripping_ambience.m4a",
     ambienceVolume: 1,
     music: "audio/ominous_drone.wav",    
@@ -88,12 +100,23 @@ const SCREENS = {
 
   dungeon_hole: {
     image: ["art/dungeon_hole.png"],
-    text: "An explosion happens and your escape appears.",
+    text: "There is an explosion. A hole leads out.",
     ambience: "audio/dripping_ambience.m4a",
     ambienceVolume: 1,
     music: "audio/ominous_drone.wav",
     sfx: "audio/dungeon_explosion.wav",
     sfxVolume: 0.1,
+    choices: [
+      { text: "Look closer.", to: "dungeon_hole_close" },
+    ]
+  },
+
+  dungeon_hole_close: {
+    image: ["art/dungeon_hole_close.png"],
+    text: "\"Huh, how did that happen?\"",
+    ambience: "audio/dripping_ambience.m4a",
+    ambienceVolume: 1,
+    music: "audio/ominous_drone.wav",
     choices: [
       { text: "Leave.", to: "forest_start" },
     ]

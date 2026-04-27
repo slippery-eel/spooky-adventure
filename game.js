@@ -6,6 +6,7 @@ const backBtn = document.getElementById("back-btn");
 const audioBtn = document.getElementById("audio-btn");
 
 const history = [];
+const visitedScreens = new Set();
 let audioEnabled = false;
 let currentScreenId = null;
 
@@ -103,13 +104,14 @@ function render(screenId) {
   updateMusic(screen.music || null, screen.volume ?? 0.6);
   updateAmbience(screen.ambience || null, screen.ambienceVolume ?? 0.6);
 
-  if (audioEnabled && screen.sfx) {
+  if (audioEnabled && screen.sfx && !visitedScreens.has(screenId)) {
     setTimeout(() => {
       const sfx = new Audio(screen.sfx);
       sfx.volume = screen.sfxVolume ?? 0.6;
       sfx.play().catch(() => {});
     }, 150);
   }
+  visitedScreens.add(screenId);
 
   choices.innerHTML = "";
 
@@ -118,6 +120,7 @@ function render(screenId) {
     btn.textContent = "Play Again";
     btn.onclick = () => {
       history.length = 0;
+      visitedScreens.clear();
       render("start");
     };
     choices.appendChild(btn);
@@ -132,8 +135,11 @@ function render(screenId) {
         audioEnabled = true;
         audioBtn.classList.add("on");
       }
+      const target = choice.random
+        ? choice.random[Math.floor(Math.random() * choice.random.length)]
+        : choice.to;
       document.getElementById("game").classList.add("fade-out");
-      setTimeout(() => render(choice.to), 200);
+      setTimeout(() => render(target), 200);
     };
     choices.appendChild(btn);
   }
